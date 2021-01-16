@@ -1,0 +1,16 @@
+name: "auto-build"
+
+on:
+  issue_comment:
+    types: [created]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    # This job only runs for comments of #1 issue
+    if: github.event.issue.number === 1=
+
+    #TODO: Build plugin to phar, and commit to this repo
+    steps:
+      - run: |
+          echo "Comment on #1 issue! #${{ github.event.issue.number }}"

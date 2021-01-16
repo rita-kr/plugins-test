@@ -1,0 +1,15 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+on: issue_comment
+
+jobs:
+  issue-commented:
+    # This job only runs for #1 issue comments
+    name: update-comments
+    if: ${{ !github.event.issue.pull_request && github.event.issue.number == 1 }}
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "Comment on #1 issue! #${{ github.event.issue.number }}"

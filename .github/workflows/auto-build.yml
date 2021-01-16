@@ -8,7 +8,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     # This job only runs for comments of #1 issue
-    if: github.event.issue.number === 1
+    if: github.event.issue.number == 1
 
     #TODO: Build plugin to phar, and commit to this repo
     steps:
